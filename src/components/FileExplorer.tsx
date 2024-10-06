@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Files } from "../data/fileData";
+import "./FileExplorer.css";
 
 export interface FileNode {
   type: "file" | "folder";
@@ -25,9 +26,11 @@ const Folder: React.FC<FolderProps> = ({
 
   return (
     <div>
-      <div onClick={() => setIsExpanded(!isExpanded)}>📁 {node.name}</div>
+      <div className="folder" onClick={() => setIsExpanded(!isExpanded)}>
+        📁 {node.name}
+      </div>
       {isExpanded && (
-        <div>
+        <div className="children">
           {node.data?.map((childNode) => (
             <div key={childNode.name}>
               {childNode.type === "folder" ? (
@@ -39,6 +42,9 @@ const Folder: React.FC<FolderProps> = ({
                 />
               ) : (
                 <div
+                  className={`file ${
+                    selectedFile === childNode.name ? "selected" : ""
+                  }`}
                   onClick={() => onSelect(childNode.name)}
                   onContextMenu={(e) => onRightClick(e, childNode.name)}
                 >
@@ -79,7 +85,10 @@ const FileExplorer: React.FC = () => {
   };
 
   return (
-    <div onClick={() => setContextMenu({ ...contextMenu, visible: false })}>
+    <div
+      className="file-explorer"
+      onClick={() => setContextMenu({ ...contextMenu, visible: false })}
+    >
       <Folder
         node={Files}
         onSelect={handleSelect}
@@ -87,7 +96,10 @@ const FileExplorer: React.FC = () => {
         selectedFile={selectedFile}
       />
       {contextMenu.visible && (
-        <div style={{ top: contextMenu.y, left: contextMenu.x }}>
+        <div
+          className="context-menu"
+          style={{ top: contextMenu.y, left: contextMenu.x }}
+        >
           <div onClick={() => handleContextMenuAction("copy")}>Copy</div>
           <div onClick={() => handleContextMenuAction("delete")}>Delete</div>
           <div onClick={() => handleContextMenuAction("rename")}>Rename</div>
