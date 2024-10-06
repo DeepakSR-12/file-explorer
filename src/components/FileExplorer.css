@@ -1,38 +1,37 @@
 .file-explorer {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    font-family: sans-serif;
-  }
-  
-  .folder,
-  .file {
-    cursor: pointer;
-    padding-left: 10px;
-    margin: 5px 0;
-  }
-  
-  .file.selected {
-    background-color: #e0e0e0;
-  }
-  
-  .children {
-    padding-left: 20px;
-  }
-  
-  .context-menu {
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 5px;
-  }
-  
-  .context-menu div {
-    padding: 5px;
-    cursor: pointer;
-  }
-  
-  .context-menu div:hover {
-    background-color: #f0f0f0;
-  }
-  
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-family: sans-serif;
+}
+
+.folder,
+.file {
+  cursor: pointer;
+  padding-left: 10px;
+  margin: 5px 0;
+}
+
+.file.selected {
+  background-color: #e0e0e0;
+}
+
+.children {
+  padding-left: 20px;
+}
+
+.context-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.context-menu div {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.context-menu div:hover {
+  background-color: #f0f0f0;
+}

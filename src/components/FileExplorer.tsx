@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Files } from "../data/fileData";
 import "./FileExplorer.css";
+import FolderIcon from "../icons/FolderIcon";
+import FileIcon from "../icons/FileIcon";
 
 export interface FileNode {
   type: "file" | "folder";
@@ -27,7 +29,7 @@ const Folder: React.FC<FolderProps> = ({
   return (
     <div>
       <div className="folder" onClick={() => setIsExpanded(!isExpanded)}>
-        📁 {node.name}
+        <FolderIcon /> {node.name}
       </div>
       {isExpanded && (
         <div className="children">
@@ -48,7 +50,7 @@ const Folder: React.FC<FolderProps> = ({
                   onClick={() => onSelect(childNode.name)}
                   onContextMenu={(e) => onRightClick(e, childNode.name)}
                 >
-                  📄 {childNode.name}
+                  <FileIcon /> {childNode.name}
                 </div>
               )}
             </div>
