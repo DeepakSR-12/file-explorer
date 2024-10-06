@@ -71,6 +71,13 @@ const FileExplorer: React.FC = () => {
     setContextMenu({ visible: true, x: e.pageX, y: e.pageY, fileName });
   };
 
+  const handleContextMenuAction = (action: string) => {
+    if (contextMenu.fileName) {
+      console.log(`${action} on ${contextMenu.fileName}`);
+      setContextMenu({ ...contextMenu, visible: false });
+    }
+  };
+
   return (
     <div onClick={() => setContextMenu({ ...contextMenu, visible: false })}>
       <Folder
@@ -79,6 +86,13 @@ const FileExplorer: React.FC = () => {
         onRightClick={handleRightClick}
         selectedFile={selectedFile}
       />
+      {contextMenu.visible && (
+        <div style={{ top: contextMenu.y, left: contextMenu.x }}>
+          <div onClick={() => handleContextMenuAction("copy")}>Copy</div>
+          <div onClick={() => handleContextMenuAction("delete")}>Delete</div>
+          <div onClick={() => handleContextMenuAction("rename")}>Rename</div>
+        </div>
+      )}
     </div>
   );
 };
