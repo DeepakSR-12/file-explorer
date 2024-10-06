@@ -1,5 +1,6 @@
-// src/data/fileData.ts
-export const Files = {
+import { FileNode } from '../components/FileExplorer';
+
+export const Files: FileNode = {
   type: "folder",
   name: "parent",
   data: [
@@ -13,10 +14,10 @@ export const Files = {
           data: [
             {
               type: "file",
-              meta: "js",
-              name: "index.js",
-            },
-          ],
+              meta: 'js',
+              name: "index.js"
+            }
+          ]
         },
         {
           type: "folder",
@@ -24,15 +25,15 @@ export const Files = {
           data: [
             {
               type: "file",
-              meta: "ts",
-              name: "index.ts",
-            },
-          ],
+              meta: 'ts',
+              name: "index.ts"
+            }
+          ]
         },
         {
           type: "file",
-          meta: "html",
-          name: "index.html",
+          meta: 'html',
+          name: "index.html"
         },
         {
           type: "folder",
@@ -44,29 +45,29 @@ export const Files = {
               data: [
                 {
                   type: "file",
-                  meta: "img",
-                  name: "image.png",
+                  meta: 'img',
+                  name: "image.png"
                 },
                 {
                   type: "file",
-                  meta: "img",
-                  name: "image2.webp",
-                },
-              ],
+                  meta: 'img',
+                  name: "image2.webp"
+                }
+              ]
             },
             {
               type: "file",
-              meta: "svg",
-              name: "logo.svg",
-            },
-          ],
+              meta: 'svg',
+              name: "logo.svg"
+            }
+          ]
         },
         {
           type: "file",
-          meta: "css",
-          name: "style.css",
-        },
-      ],
-    },
-  ],
+          meta: 'css',
+          name: "style.css"
+        }
+      ]
+    }
+  ]
 };
